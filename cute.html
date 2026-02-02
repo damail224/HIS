@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>I love you so much Davyyyy🥹❤️ 💚</title>
+
+<style>
+body{
+  margin:0;
+  background:linear-gradient(135deg,#022d22,#064e3b,#065f46);
+  color:white;
+  font-family:Arial;
+  text-align:center;
+}
+
+h1{
+  margin-top:20px;
+  text-shadow:0 0 10px #10b981;
+}
+
+button{
+  padding:12px 20px;
+  font-size:18px;
+  background:#10b981;
+  color:white;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  margin:8px;
+}
+
+#moodDisplay{
+  display:none;
+  margin-top:20px;
+  padding:20px;
+  width:80%;
+  margin-left:auto;
+  margin-right:auto;
+  background:rgba(0,0,0,0.3);
+  border-radius:15px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Davyyyy❤️ 💚</h1>
+
+<!-- FOREVER BUTTON -->
+<h2>Forever Button 🥹</h2>
+<button onclick="alert('baby🥹…, you just agreed to be mine...you are my forever and always 💚')">
+sign agreement 😄
+</button>
+
+<h2>Where to go when…</h2>
+
+<button onclick="showMood('happy')">Happy 😄</button>
+<button onclick="showMood('sad')">Sad 😢</button>
+<button onclick="showMood('emotional')">Emotional 😭</button>
+<button onclick="showMood('missing')">Missing Me 😌</button>
+<button onclick="showMood('angry')">Angry 😡</button>
+<button onclick="showMood('disappointed')">Disappointed 😔</button>
+<button onclick="showMood('insecure')">Insecure 😖</button>
+<button onclick="showMood('horny')">Horny 😂</button>
+
+<!-- DISPLAY AREA -->
+<div id="moodDisplay">
+<h3 id="moodTitle"></h3>
+<p id="moodText"></p>
+
+<button onclick="playVoice()">Read to Me 💚</button>
+<audio id="voicePlayer"></audio>
+</div>
+
+<script>
+
+const messages = {
+
+happy:`Hey there, my happy king🥹. I hope you're feeling okay. I know you are. I want you to know that you should enjoy this moment because it's a very precious one and you should share it with me, okay? Of course, huwezikua happy pekee yako 💚`,
+
+sad:`Hey baby, I know you're sad. Whatever you're feeling sad about, just know it's okay to be sad. Take your time. If you wanna talk about it, I'm here. If you don't wanna talk about it, I'm also here. Yeah, I love you 💚`,
+
+emotional:`Hey🥹, how are you feeling? Emotional? Don't worry, you can cry if you're feeling like crying. It's not a sign of weakness but the best way to let go of emotions. Take a tissue. I wish I was there to hug you. For now, take care and talk to me about it 💚`,
+
+missing:`Hello my sweet baby🥹… I miss you too. Can you come right now? If you can please hurry. If you can't, quickly give me a call. I love you honey 💚`,
+
+angry:`Yoh… sasa mbona umejam? Relax mzee utapasuka. Kama ni mimi nimekusasirisha I'm honestly sorry. Lakini si uache kukasirikia manzi yako. Kakitu kafupi hivi kanakukasirisha aje na unakubali kukasirika? Cheer up mzee 💚`,
+
+disappointed:`Hey, whatever you're feeling disappointed about, just know it's not your fault. Breathe in, relax, everything is going to work out. Just do the next thing you're supposed to do Iam here to always support you!!💚`,
+
+insecure:`Hey my love, my future husband. I don't know what made you feel insecure again, but it's okay. I'm here to reassure you as many times as you want. I love you and I am yours now and forever. Nothing will do us part. I love you so much 💚`,
+
+horny:`Oh my God, who, Who is on fire right now? Wow wow wow young man 😂. Tusaidiane, you know where to find me .Kuja nikudinye😌💚`
+};
+
+function showMood(mood){
+  document.getElementById("moodDisplay").style.display="block";
+  document.getElementById("moodTitle").innerText =
+    mood.charAt(0).toUpperCase()+mood.slice(1);
+
+  document.getElementById("moodText").innerText = messages[mood];
+
+  // Each mood can have its own voice file
+  document.getElementById("voicePlayer").src = mood + ".ogg";
+}
+
+function playVoice(){
+  document.getElementById("voicePlayer").play();
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For Davyyyy❤️ 💚</title>
+
+<style>
+body{
+  margin:0;
+  background:linear-gradient(135deg,#022d22,#064e3b,#065f46);
+  color:white;
+  text-align:center;
+  font-family: Arial;
+  overflow:hidden;
+}
+
+/* Title glow */
+h1{
+  margin-top:20px;
+  text-shadow:0 0 10px #10b981;
+}
+
+/* Slideshow */
+.slideshow{
+  width:300px;
+  height:400px;
+  margin:30px auto;
+  overflow:hidden;
+  border-radius:20px;
+  box-shadow:0 0 25px rgba(16,185,129,0.6);
+}
+
+.slideshow img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  animation: zoom 10s linear infinite;
+}
+
+@keyframes zoom{
+  from{transform:scale(1);}
+  to{transform:scale(1.15);}
+}
+
+/* Lyrics */
+#lyrics{
+  font-size:22px;
+  min-height:60px;
+  text-shadow:0 0 8px #6ee7b7;
+  margin-top:20px;
+}
+
+/* Dandelion petals */
+.petal{
+  position:fixed;
+  top:-10px;
+  font-size:20px;
+  opacity:0.8;
+  animation: fall linear forwards;
+}
+
+@keyframes fall{
+  to{
+    transform:translateY(100vh) rotate(360deg);
+  }
+}
+
+/* Button style */
+button{
+  padding:12px 20px;
+  font-size:18px;
+  background:#10b981;
+  color:white;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  margin:20px;
+  text-shadow:0 0 5px #064e3b;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<h1>For My LOVE, Davyyyy❤️ 💚</h1>
+
+<div class="slideshow">
+<img id="slide" src="images/photo1.jpeg">
+</div>
+
+<h2 id="lyrics">🌿(my love)...I'm in a field of dandelions!!wishing on everyone that</h2>
+
+<!-- PLAY BUTTON -->
+<button onclick="start()">it's our song here!!! 🌼</button>
+
+<!-- SONG -->
+<audio id="song" src="dandelions.ogg"></audio>
+
+<!-- VOICE NOTE -->
+<audio id="voice" src="voice.ogg"></audio>
+
+<a href="cute.html" style="color:#10b981; text-decoration:none; font-size:20px;">
+Click here after listening to the voice note 💚
+</a>
+
+
+<script>
+
+/* ===== START SONG ===== */
+function start(){
+  let s=document.getElementById("song");
+  s.currentTime=0;
+  s.play();
+  showLyrics();
+  petals();
+}
+
+/* ===== LYRICS (YOU EDIT MANUALLY) ===== */
+let lines=[
+  {time:5, text:"[that you'll be mine😭❤️,mine....and!!]"},
+  {time:12, text:"[i see forever in your eyes.....!!❤️i feel okay when i see you smile😄,]"},
+  {time:20, text:"[smile...wishing on dandelions all of the time ❤️!!!]"},
+  {time:30, text:"[wishing on dandelions all of the time ,]"},
+  {time:40, text:"[, all of the tiiiiimmeeee!!]"}
+];
+
+let song=document.getElementById("song");
+
+function showLyrics(){
+  setInterval(()=>{
+    let t=Math.floor(song.currentTime);
+    lines.forEach(l=>{
+      if(t===l.time){
+        document.getElementById("lyrics").innerHTML=l.text;
+      }
+    });
+  },1000);
+}
+
+/* ===== PLAY VOICE AFTER SONG ===== */
+song.onended=function(){
+  document.getElementById("lyrics").innerHTML="Davyyyy❤️, listen to my heart 💚listen to the end.";
+  document.getElementById("voice").play();
+};
+
+/* ===== SLIDESHOW PHOTOS ===== */
+let pics=[
+  "images/photo1.jpeg",
+  "images/photo2.jpeg",
+  "images/photo4.jpeg",
+  "images/photo3.jpeg",
+  "images/photo5.jpeg"
+];
+let i=0;
+setInterval(()=>{
+  i=(i+1)%pics.length;
+  document.getElementById("slide").src=pics[i];
+},10000); // changes every 10s
+
+/* ===== FALLING PETALS ===== */
+function petals(){
+  setInterval(()=>{
+    let p=document.createElement("div");
+    p.innerHTML="🌼";
+    p.className="petal";
+    p.style.left=Math.random()*100+"vw";
+    p.style.animationDuration=(Math.random()*6+5)+"s";
+    document.body.appendChild(p);
+  },350);
+}
+
+</script>
+
+</body>
+</html>
